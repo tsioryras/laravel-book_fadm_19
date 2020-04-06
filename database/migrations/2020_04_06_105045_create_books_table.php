@@ -19,6 +19,8 @@ class CreateBooksTable extends Migration
             $table->text('description')->nullable(); // TEXT NULL
             $table->dateTime('published_at'); // DATETIME
             $table->timestamps(); // timestamps
+            $table->unsignedInteger('genre_id')->nullable();
+            $table->foreign('genre_id')->references('id')->on('genres')->onDelete('SET NULL');
         });
     }
 
