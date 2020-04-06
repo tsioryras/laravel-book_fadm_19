@@ -15,7 +15,7 @@ class AlterBooksTable extends Migration
     {
         Schema::table('books', function (Blueprint $table) {
             $table->unsignedInteger('genre_id')->nullable();
-            $table->foreign('genre_id')->references('genres')->onDelete('SET NULL');
+            $table->foreign('genre_id')->references('id')->on('genres');
         });
     }
 

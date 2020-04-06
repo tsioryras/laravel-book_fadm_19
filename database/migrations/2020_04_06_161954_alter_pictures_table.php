@@ -15,7 +15,7 @@ class AlterPicturesTable extends Migration
     {
         Schema::table('pictures', function (Blueprint $table) {
             $table->unsignedInteger('book_id')->nullable();
-            $table->foreign('book_id')->references('books')->onDelete('SET NULL');
+            $table->foreign('book_id')->references('id')->on('books');
         });
     }
 
