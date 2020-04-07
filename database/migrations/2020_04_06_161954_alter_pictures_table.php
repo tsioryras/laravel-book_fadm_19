@@ -26,8 +26,8 @@ class AlterPicturesTable extends Migration
      */
     public function down()
     {
-        Schema::table('books', function (Blueprint $table) {
-            $table->dropForeign('pictures_genre_id_foreign');
+        Schema::table('pictures', function (Blueprint $table) {
+            $table->dropForeign('pictures_book_id_foreign');
             $table->dropColumn('book_id');
         });
     }
