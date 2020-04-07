@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 Storage::disk('local')->delete(Storage::allFiles());
 $factory->define(Picture::class, function (Faker $faker) {
-    $link = $faker->userName . Str::random(5) . '.jpg';
+    $link = Str::random(15) . '.jpg';
     $file = file_get_contents('http://placeimg.com/250/250/any');
     Storage::disk('local')->put($link, $file);
     return [
