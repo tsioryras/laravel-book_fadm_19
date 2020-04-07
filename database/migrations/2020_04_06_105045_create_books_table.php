@@ -18,7 +18,6 @@ class CreateBooksTable extends Migration
             $table->string('title', 100); // VARCHAR 100
             $table->text('description')->nullable(); // TEXT NULL
             $table->dateTime('published_at'); // DATETIME
-            $table->timestamps(); // timestamps
         });
     }
 
