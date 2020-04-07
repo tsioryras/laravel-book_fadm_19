@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(AuthorSeeder::class);
         $this->call(GenreSeeder::class);
-        $this->call(PictureSeeder::class);
         $this->call(BookTableSeeder::class);
+        $this->call(PictureSeeder::class);
     }
 }

@@ -11,7 +11,9 @@ class PictureSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Picture::class,30)->create()->each(function ($picture){
+        factory(App\Picture::class,10)->create()->each(function ($picture){
+            $book = App\Book::find(rand(1,30));
+            $picture->book()->associate($book);
            $picture->save();
         });
     }
