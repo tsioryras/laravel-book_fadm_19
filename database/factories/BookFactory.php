@@ -9,6 +9,7 @@ $factory->define(Book::class, function (Faker $faker) {
     return [
         'title' => $faker->company,
         'description' => $faker->paragraph(40),
+        'score'=>$faker->randomNumber(2),
         'published_at'=>$faker->dateTime
     ];
 });
