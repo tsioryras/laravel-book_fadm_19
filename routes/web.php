@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/book/{id}', 'HomeController@show')->where(['id' => '[0-9]+']);
+Route::get('/book/{id}', 'BookController@index')->where(['id' => '[0-9]+']);
+Route::get('/authors', 'AuthorController@index');
+Route::get('/author/{id}', 'AuthorController@show')->where(['id' => '[0-9]+']);

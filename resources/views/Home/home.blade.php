@@ -1,6 +1,7 @@
 @extends('base')
 
 @section('content')
+    <h1>Books list</h1>
     @forelse($books as $book)
         <div class="row list">
             <div class="col-md-3 list card">
@@ -10,10 +11,10 @@
                         <figcaption class="figure-caption">{{$book->title}}</figcaption>
                     </figure>
                 </a>
-                <div class="links">
+                <div>
                     <small>Written by:</small>
                         @foreach($book->authors as $author)
-                            <a href="#"> {{$author->name}} </a>
+                            <a href="{{url('/author',['id'=>$author->id])}}"> {{$author->name}} </a>
                         @endforeach
                 </div>
             </div>
