@@ -1,7 +1,11 @@
 @extends('base')
 
 @section('content')
-    <h1>Books list</h1>
+    @if(isset($genre))
+        <h1>Books {{$genre->name}} list</h1>
+    @else
+        <h1>Books list</h1>
+    @endif
     @forelse($books as $book)
         <div class="row list">
             <div class="col-md-3 list card">

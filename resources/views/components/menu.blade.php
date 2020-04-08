@@ -16,7 +16,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     @forelse($genres as $genre)
-                        <a class="dropdown-item" href="#">{{$genre->name}}</a>
+                        <a class="dropdown-item" href="{{url('/book/genre',['id'=>$genre->id])}}">{{$genre->name}}</a>
                     @empty
                         <a class="dropdown-item" href="#">Aucun genre existant</a>
                     @endforelse
