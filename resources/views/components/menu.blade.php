@@ -1,4 +1,7 @@
 <li class="nav-item">
+    <a class="nav-link" href="{{url('/books')}}">Books</a>
+</li>
+<li class="nav-item">
     <a class="nav-link" href="{{url('/authors')}}">Authors</a>
 </li>
 <li class="nav-item dropdown">
