@@ -24,13 +24,9 @@ class PictureSeeder extends Seeder
 
             if(is_array($booksKeys)){
                 $key = array_rand($booksKeys, 1);
-                dump($key);
                 $picture->book()->associate($booksKeys[$key]);
                 $picture->save();
                 unset($booksKeys[$key]);
-            }else{
-                $picture->book()->associate($booksKeys);
-                $picture->save();
             }
         });
     }
