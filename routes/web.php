@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', ['as'=>'login','uses'=>'HomeController@index']);
 Route::get('/book/{id}', 'BookController@index')->where(['id' => '[0-9]+']);
 Route::get('/book/genre/{id}', 'BookController@bookByGenre')->where(['id' => '[0-9]+']);
 Route::get('/authors', 'AuthorController@index');
