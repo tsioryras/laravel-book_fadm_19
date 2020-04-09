@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Book;
 
 class PictureSeeder extends Seeder
 {
@@ -11,10 +12,26 @@ class PictureSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Picture::class,10)->create()->each(function ($picture){
-            $book = App\Book::find(rand(1,30));
-            $picture->book()->associate($book);
-           $picture->save();
+        $booksKeys = [];
+        $books = Book::all();
+        $count = $books->count();
+        for ($i = 0; $i < $count; $i++) {
+            $booksKeys[] = $i;
+        }
+
+        shuffle($booksKeys);
+        factory(App\Picture::class, $count)->create()->each(function ($picture, $booksKeys) {
+
+            if(is_array($booksKeys)){
+                $key = array_rand($booksKeys, 1);
+                dump($key);
+                $picture->book()->associate($booksKeys[$key]);
+                $picture->save();
+                unset($booksKeys[$key]);
+            }else{
+                $picture->book()->associate($booksKeys);
+                $picture->save();
+            }
         });
     }
 }

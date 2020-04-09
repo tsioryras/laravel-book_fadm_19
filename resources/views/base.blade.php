@@ -16,9 +16,17 @@
             list-style: none;
         }
 
-        .list {
+        .list>.row, .list {
             margin-bottom: 1em;
-            margin-top: 0.125em;
+            padding: 1em;
+        }
+
+        .description{
+            margin-bottom: 1em;
+        }
+
+        .book, .author{
+            margin-top:2em;
         }
 
         .links > a {
@@ -29,6 +37,10 @@
             letter-spacing: .1rem;
             text-decoration: none;
             text-transform: uppercase;
+        }
+
+        .media-body{
+            padding-left: 2em;
         }
 
     </style>

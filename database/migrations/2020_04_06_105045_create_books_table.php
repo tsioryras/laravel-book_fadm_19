@@ -17,7 +17,8 @@ class CreateBooksTable extends Migration
             $table->increments('id'); // clé primaire
             $table->string('title', 100); // VARCHAR 100
             $table->text('description')->nullable(); // TEXT NULL
-            $table->dateTime('published_at'); // DATETIME
+            $table->dateTime('published_at')->nullable(); // DATETIME
+            $table->enum('status',['unpublished','publish','draft'])->default('unpublished');
         });
     }
 

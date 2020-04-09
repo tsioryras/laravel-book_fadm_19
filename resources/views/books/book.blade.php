@@ -1,15 +1,15 @@
 @extends('base')
 
 @section('content')
-    <div class="row list">
+    <div class="row list book">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h3>{{$book->title}}</h3>
                 </div>
                 <div class="card-body text-center">
-                    <img src="" class="img-thumbnail">
-                    <div class="text-left">
+                    <img src="{{asset('storage/'.$book->picture['link'])}}" class="img-thumbnail">
+                    <div class="text-left list">
                         {{$book->description}}
                     </div>
                 </div>
