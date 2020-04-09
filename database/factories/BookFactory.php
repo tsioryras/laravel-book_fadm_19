@@ -14,8 +14,8 @@ $factory->define(Book::class, function (Faker $faker) {
     return [
         'title' => $faker->company,
         'description' => $faker->paragraph(40),
-        'score'=>$status[$statusIndex],
-        'status'=>$score,
+        'status'=>$status[$statusIndex],
+        'score'=>$score,
         'published_at'=>$date
     ];
 });

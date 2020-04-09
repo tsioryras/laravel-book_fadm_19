@@ -16,7 +16,6 @@ class AlterBooksTable extends Migration
         Schema::table('books', function (Blueprint $table) {
             $table->unsignedInteger('genre_id')->nullable();
             $table->unsignedDouble('score')->nullable();
-            $table->string('status');
             $table->foreign('genre_id')->references('id')->on('genres');
         });
     }
