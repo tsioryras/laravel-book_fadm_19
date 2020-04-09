@@ -1,0 +1,38 @@
+body {
+    padding-bottom: 2rem;
+}
+
+li {
+    list-style: none;
+}
+
+.list>.row, .list {
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.description{
+    margin-bottom: 1em;
+}
+
+.book, .author{
+    margin-top:1em;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.media-body{
+    padding-left: 2em;
+}
+
+.media>a:hover{
+    text-decoration: none;
+}
