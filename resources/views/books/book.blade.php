@@ -25,7 +25,7 @@
                     </p>
                 </div>
                 <div class="card-body text-center">
-                    <img src="{{asset('storage/images/'.$book->picture['link'])}}" class="img-thumbnail">
+                    <img src="{{asset('storage/images/books/'.$book->picture['link'])}}" class="img-thumbnail">
                     <div class="text-left list">
                         {{$book->description}}
                     </div>

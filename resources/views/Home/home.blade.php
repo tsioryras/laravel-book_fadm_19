@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="media">
                         <a href="{{url('/book',['id'=>$book->id])}}">
-                            <img src="{{asset('storage/images/'.$book->picture['link'])}}" class="img-thumbnail">
+                            <img src="{{asset('storage/images/books/'.$book->picture['link'])}}" class="img-thumbnail">
                             <p class="text-secondary">
                                 @if($book->score)
                                     @if($book->score<2)

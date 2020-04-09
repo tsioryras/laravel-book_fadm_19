@@ -12,22 +12,16 @@ class PictureSeeder extends Seeder
      */
     public function run()
     {
-        $booksKeys = [];
-        $books = Book::all();
-        $count = $books->count();
-        for ($i = 0; $i < $count; $i++) {
-            $booksKeys[] = $i;
-        }
-
-        shuffle($booksKeys);
-        factory(App\Picture::class, $count)->create()->each(function ($picture, $booksKeys) {
-
-            if(is_array($booksKeys)){
-                $key = array_rand($booksKeys, 1);
-                $picture->book()->associate($booksKeys[$key]);
-                $picture->save();
-                unset($booksKeys[$key]);
-            }
+        $books = Book::all()->all();
+        $count = sizeof($books)+1;
+        shuffle($books);
+        factory(App\Picture::class,$count)->create()->each(function ($picture, $books) {
+            $key = is_array($books) ? array_rand($books, 1):null;
+            $book = is_array($books) ? $books[$key]:$books;
+            $picture->book()->associate($book);
+            $picture->save();
+            unset($books[$key]);
         });
+
     }
 }

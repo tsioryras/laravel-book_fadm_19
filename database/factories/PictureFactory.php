@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 Storage::disk('local')->delete(Storage::allFiles());
-foreach (scandir(storage_path('app/public/images')) as $file) {
+foreach (scandir(storage_path('app/public/images/books')) as $file) {
     if ($file != '.' && $file != '..') {
-        unlink(storage_path('app/public/images/') . $file);
+        unlink(storage_path('app/public/images/books/') . $file);
     }
 }
 $factory->define(Picture::class, function () {
@@ -17,7 +17,7 @@ $factory->define(Picture::class, function () {
     $file = file_get_contents('http://placeimg.com/250/250/any');
 
     Storage::disk('local')->put($link, $file);
-    if (copy(storage_path('images/') . $link, storage_path('app/public/images/') . $link)) {
+    if (copy(storage_path('images/') . $link, storage_path('app/public/images/books/') . $link)) {
         unlink(storage_path('images/') . $link);
     }
     return [

@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h1>About {{$author->name}}</h1>
+                    <h1>{{$author->name}}</h1>
                 </div>
                 <div class="card-body">
                     <ul>
