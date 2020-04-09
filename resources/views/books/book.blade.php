@@ -6,15 +6,25 @@
             <div class="card">
                 <div class="card-header">
                     <h3>{{$book->title}}</h3>
+                    <small> {{strtoupper(trans($book->status))}}
+                    @if($book->status !='unpublished')
+                        in {{\Carbon\Carbon::parse($book->published_at)->format('j F, Y')}}
+                    @endif
+                    </small>
+                    <p>
+                        @if($book->score)
+                            <small>Note: {{$book->score}}/5</small>
+                        @endif
+                    </p>
                 </div>
                 <div class="card-body text-center">
-                    <img src="{{asset('storage/'.$book->picture['link'])}}" class="img-thumbnail">
+                    <img src="{{asset('storage/images/'.$book->picture['link'])}}" class="img-thumbnail">
                     <div class="text-left list">
                         {{$book->description}}
                     </div>
                 </div>
                 <div class="card-footer">
-                    <small>Authors: </small>
+                    <small>Authors:</small>
                     @forelse($book->authors as $author)
                         <a href="{{url('/author',['id'=>$author->id])}}">{{$author->name}}</a>
                     @empty

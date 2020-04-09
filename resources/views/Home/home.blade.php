@@ -13,6 +13,11 @@
                     <div class="media">
                         <a href="{{url('/book',['id'=>$book->id])}}">
                             <img src="{{asset('storage/images/'.$book->picture['link'])}}" class="img-thumbnail">
+                            <p>
+                                @if($book->score)
+                                    <small>Note: {{$book->score}}/5</small>
+                                @endif
+                            </p>
                         </a>
                         <div class="media-body">
                             <h3 class="mt-0">{{$book->title}}</h3>
