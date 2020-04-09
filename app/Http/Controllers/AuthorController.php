@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use App\Book;
-use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
+
     public function index(){
         $authors = Author::all();
         return view('authors.index',['authors'=>$authors]);

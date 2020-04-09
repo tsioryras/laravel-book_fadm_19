@@ -1,4 +1,4 @@
-@extends('base')
+@extends('layouts.app')
 
 @section('content')
     @if(isset($genre))
@@ -13,9 +13,20 @@
                     <div class="media">
                         <a href="{{url('/book',['id'=>$book->id])}}">
                             <img src="{{asset('storage/images/'.$book->picture['link'])}}" class="img-thumbnail">
-                            <p>
+                            <p class="text-secondary">
                                 @if($book->score)
-                                    <small>Note: {{$book->score}}/5</small>
+                                    @if($book->score<2)
+                                        @php ($color = 'danger')
+                                    @elseif($book->score>=4)
+                                        @php ($color = 'success')
+                                    @else
+                                        @php ($color = 'warning')
+                                    @endif
+                                    <small>Score:</small>
+                                    <small class="text-{{$color}}">{{$book->score}}</small>
+                                    <small>/5</small>
+                                @else
+                                    <small>Not noted yet!</small>
                                 @endif
                             </p>
                         </a>

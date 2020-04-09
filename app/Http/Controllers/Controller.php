@@ -12,6 +12,7 @@ class Controller extends BaseController
 {
     public function __construct()
     {
+        $this->middleware('auth');
         view()->composer('components.menu', function ($view) {
             $genres = Genre::all();
             $view->with('genres', $genres);

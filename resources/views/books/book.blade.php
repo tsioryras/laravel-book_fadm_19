@@ -1,4 +1,4 @@
-@extends('base')
+@extends('layouts.app')
 
 @section('content')
     <div class="row list book">
@@ -13,7 +13,14 @@
                     </small>
                     <p>
                         @if($book->score)
-                            <small>Note: {{$book->score}}/5</small>
+                            @if($book->score<2)
+                                @php ($color = 'danger')
+                            @elseif($book->score>=4)
+                                @php ($color = 'success')
+                            @else
+                                @php ($color = 'warning')
+                            @endif
+                            <small>Score: </small><small class="text-{{$color}}">{{$book->score}}</small><small>/5</small>
                         @endif
                     </p>
                 </div>
