@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'ListController@index');
 Route::get('/book/{id}', 'BookController@index')->where(['id' => '[0-9]+']);
 Route::get('/book/genre/{id}', 'BookController@bookByGenre')->where(['id' => '[0-9]+']);
 Route::get('/authors', 'AuthorController@index');
 Route::get('/author/{id}', 'AuthorController@show')->where(['id' => '[0-9]+']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
