@@ -40,3 +40,12 @@ li {
 .app_item{
     margin:0.25em;
 }
+.page-link{
+    color: #000000;
+}
+
+.page-item.active .page-link{
+    background-color: #000000!important;
+    color: #ffffff!important;
+    border-color: #000000!important;
+}
