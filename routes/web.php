@@ -17,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/books', 'ListController@index');
+Route::resource('admin','AdminController')->middleware('auth');
+Route::resource('books','CRUDBookController')->middleware('auth');
+//Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'ListController@index');
 Route::get('/book/{id}', 'BookController@index')->where(['id' => '[0-9]+']);
 Route::get('/book/genre/{id}', 'BookController@bookByGenre')->where(['id' => '[0-9]+']);
 Route::get('/authors', 'AuthorController@index');

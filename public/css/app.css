@@ -36,3 +36,7 @@ li {
 .media>a:hover{
     text-decoration: none;
 }
+
+.app_item{
+    margin:0.25em;
+}

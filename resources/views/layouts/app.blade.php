@@ -34,7 +34,10 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
+                    @include('components.menu')
+                </ul>
                 <!-- Authentication Links -->
             @guest
                 <!-- Right Side Of Navbar -->
@@ -49,11 +52,7 @@
                         @endif
                     </ul>
             @else
-                <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        @include('components.menu')
-                    </ul>
-                    <!-- Right Side Of Navbar -->
+                <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -62,12 +61,12 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('admin.index') }}">Profile</a>
+                                <a class="dropdown-item" href="{{ route('books.index') }}">CRUD Books</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">
                                     @csrf
