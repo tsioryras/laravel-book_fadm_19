@@ -18,7 +18,7 @@
                 <div class="card-footer">
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="{{route('books.edit',$book->id)}}" type="button" class="btn btn-outline-secondary">Edit</a>
-                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                        <a href="{{route('books.destroy',$book->id)}}" class="btn btn-outline-danger">Delete</a>
                     </div>
                 </div>
             </div>
