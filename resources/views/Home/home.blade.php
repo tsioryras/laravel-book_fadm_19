@@ -34,7 +34,7 @@
                             <h3 class="mt-0">{{$book->title}}</h3>
                             <div class="description">
                                 {{ Str::limit($book->description, strlen($book->description)/2, $end='...') }}
-                                <a href="{{url('/book',['id'=>$book->id])}}">[Lire la suite]</a>
+                                <a href="{{route('book',['id'=>$book->id])}}">[Lire la suite]</a>
                             </div>
                         </div>
                     </div>
