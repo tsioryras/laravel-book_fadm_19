@@ -11,7 +11,7 @@
             <div class="row img-thumbnail">
                 <div class="col-md-12">
                     <div class="media">
-                        <a href="{{url('/book',['id'=>$book->id])}}">
+                        <a href="{{route('book',['id'=>$book->id])}}">
                             <img src="{{asset('storage/images/books/'.$book->picture['link'])}}" class="img-thumbnail">
                             <p class="text-secondary">
                                 @if($book->score)
@@ -41,7 +41,7 @@
                     <div class="author">
                         <small>Written by:</small>
                         @foreach($book->authors as $author)
-                            <a href="{{url('/author',['id'=>$author->id])}}"> {{$author->name}} </a>
+                            <a href="{{route('author',['id'=>$author->id])}}"> {{$author->name}} </a>
                         @endforeach
                     </div>
                 </div>

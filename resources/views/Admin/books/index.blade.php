@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <a href="{{route('books.create')}}">
+        <button class="btn btn-primary">Add new book</button>
+    </a>
     <div class="row list">
         @forelse($books as $book)
             <div class="card app_item text-center">
@@ -8,13 +11,13 @@
                     <small>{{$book->title}}</small>
                 </div>
                 <div class="media">
-                    <a href="{{url('/book',['id'=>$book->id])}}">
+                    <a href="{{route('books.show',$book->id)}}">
                         <img src="{{asset('storage/images/books/'.$book->picture['link'])}}">
                     </a>
                 </div>
                 <div class="card-footer">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-outline-warning">Edit</button>
+                        <a href="{{route('books.edit',$book->id)}}" type="button" class="btn btn-outline-secondary">Edit</a>
                         <button type="button" class="btn btn-outline-danger">Delete</button>
                     </div>
                 </div>

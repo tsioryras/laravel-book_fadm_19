@@ -16,7 +16,7 @@
                         <li>Books:
                             <div class="links">
                                 @forelse($books as $book)
-                                    <a href="{{url('/book',['id'=>$book->id])}}">{{$book->title}}</a><br>
+                                    <a href="{{route('book',['id'=>$book->id])}}">{{$book->title}}</a><br>
                                 @empty
                                     <a>No success book yet</a>
                                 @endforelse

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ route('home') }}">
             MyBookStore
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -10,27 +10,29 @@
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/authors')}}">Authors</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Genres
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        @forelse($genres as $genre)
-                            <a class="dropdown-item"
-                               href="{{url('/book/genre',['id'=>$genre->id])}}">{{$genre->name}}</a>
-                        @empty
-                            <a class="dropdown-item" href="#">Aucun genre existant</a>
-                        @endforelse
-                    </div>
-                </li>
-            </ul>
-            <!-- Authentication Links -->
-        @guest
+            @if(Route::is('books.*')==false && Route::is('genders.*')==false)
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('authors')}}">Authors</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Genres
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            @forelse($genres as $genre)
+                                <a class="dropdown-item"
+                                   href="{{route('book_gender',['id'=>$genre->id])}}">{{$genre->name}}</a>
+                            @empty
+                                <a class="dropdown-item" href="#">Aucun genre existant</a>
+                            @endforelse
+                        </div>
+                    </li>
+                </ul>
+            @endif
+        <!-- Authentication Links -->
+            @guest
             <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -42,7 +44,7 @@
                         </li>
                     @endif
                 </ul>
-        @else
+            @else
             <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
@@ -53,7 +55,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('admin.index') }}">Profile</a>
-                            <a class="dropdown-item" href="{{ route('genres.index') }}">CRUD genres</a>
+                            <a class="dropdown-item" href="{{ route('genders.index') }}">CRUD genres</a>
                             <a class="dropdown-item" href="{{ route('books.index') }}">CRUD Books</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
