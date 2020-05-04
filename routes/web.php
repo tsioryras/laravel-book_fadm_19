@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::resource('admin', 'AdminController')->middleware('auth');
 Route::resource('books', 'CRUDBookController')->middleware('auth');
-//Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/', 'ListController@index')->name('home');
 Route::get('/book/{id}', 'BookController@index')->where(['id' => '[0-9]+'])->name('book');
 Route::get('/book/genre/{id}', 'BookController@bookByGenre')->where(['id' => '[0-9]+']);
