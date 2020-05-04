@@ -1,5 +1,5 @@
 <li class="nav-item">
-    <a class="nav-link" href="{{url('/authors')}}">Authors</a>
+    <a class="nav-link" href="{{route('authors')}}">Authors</a>
 </li>
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"

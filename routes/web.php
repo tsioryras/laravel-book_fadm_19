@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::resource('admin','AdminController')->middleware('auth');
-Route::resource('books','CRUDBookController')->middleware('auth');
+Route::resource('admin', 'AdminController')->middleware('auth');
+Route::resource('books', 'CRUDBookController')->middleware('auth');
 //Route::get('/', 'HomeController@index')->name('home');
-Route::get('/', 'ListController@index');
-Route::get('/book/{id}', 'BookController@index')->where(['id' => '[0-9]+']);
+Route::get('/', 'ListController@index')->name('home');
+Route::get('/book/{id}', 'BookController@index')->where(['id' => '[0-9]+'])->name('book');
 Route::get('/book/genre/{id}', 'BookController@bookByGenre')->where(['id' => '[0-9]+']);
-Route::get('/authors', 'AuthorController@index');
-Route::get('/author/{id}', 'AuthorController@show')->where(['id' => '[0-9]+']);
+Route::get('/authors', 'AuthorController@index')->name('authors');
+Route::get('/author/{id}', 'AuthorController@show')->where(['id' => '[0-9]+'])->name('author');

@@ -33,7 +33,7 @@
                 <div class="card-footer">
                     <small>Authors:</small>
                     @forelse($book->authors as $author)
-                        <a href="{{url('/author',['id'=>$author->id])}}">{{$author->name}}</a>
+                        <a href="{{route('author',['id'=>$author->id])}}">{{$author->name}}</a>
                     @empty
                         Unknown author
                     @endforelse
