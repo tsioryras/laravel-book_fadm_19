@@ -19,6 +19,8 @@ class CreateAuthorsTable extends Migration
             $table->string('email')->nullable()->unique();
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
+            $table->dateTime('created_at')->nullable(); // DATETIME
+            $table->dateTime('updated_at')->nullable(); // DATETIME
         });
     }
 

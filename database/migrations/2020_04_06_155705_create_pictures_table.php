@@ -17,6 +17,8 @@ class CreatePicturesTable extends Migration
             $table->increments('id');
             $table->string('link');
             $table->string('title');
+            $table->dateTime('updated_at')->nullable(); // DATETIME
+            $table->dateTime('created_at')->nullable(); // DATETIME
         });
     }
 

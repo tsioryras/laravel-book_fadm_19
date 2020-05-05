@@ -16,6 +16,8 @@ class CreateGenresTable extends Migration
         Schema::create('genres', function (Blueprint $table) {
             $table->increments('id'); // clé primaire
             $table->string('name', 100); // VARCHAR 100
+            $table->dateTime('created_at')->nullable(); // DATETIME
+            $table->dateTime('updated_at')->nullable(); // DATETIME
         });
     }
 
